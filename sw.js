@@ -13,3 +13,15 @@ self.addEventListener('install', function(event) {
 		})
 	);
 });
+
+var deferredEvent;
+
+window.addEventListener("beforeinstallprompt", e => { 
+  e.preventDefault();
+  deferredEvent = e;
+});
+
+// 인스톨 버튼 이벤트 처리
+button.addEventListener("click", e => {
+  <span style="color:red">deferredEvent.prompt();</span> // 부추기기 보여짐
+});
